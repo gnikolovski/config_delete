@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_form_alter().
+ */
+function config_delete_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'config_delete_form') {
+    unset($form['export']);
+
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => t('Delete'),
+    ];
+  }
+}
