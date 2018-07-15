@@ -31,7 +31,7 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
       $name = $definition->getConfigPrefix() . '.' . $config_name;
     }
     else {
-      $name = $form_state->getValue($config_name);
+      $name = $config_name;
     }
 
     \Drupal::configFactory()->getEditable($name)
