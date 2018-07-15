@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Allows users to delete configuration items from the UI.
+ * Delete configuration items from the UI.
  */
 
 use Drupal\Core\Form\FormStateInterface;
