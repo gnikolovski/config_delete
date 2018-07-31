@@ -14,6 +14,14 @@ function config_delete_form_alter(&$form, FormStateInterface $form_state, $form_
   if ($form_id == 'config_delete_form') {
     unset($form['export']);
 
+    $form['config_delete_notice'] = [
+      '#type' => 'markup',
+      '#markup' => t('Notice: Deleting configuration items can potentially break your site. Please use this only if you know what are you doing.'),
+      '#prefix' => '<strong>',
+      '#suffix' => '</strong>',
+      '#weight' => -100,
+    ];
+
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => t('Delete'),
