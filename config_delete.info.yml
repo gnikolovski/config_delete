@@ -1,5 +1,5 @@
 type: module
-name: Config Delete
+name: 'Config Delete'
 description: 'Delete configuration items from the UI.'
-package: Development
+package: 'Development'
 core: 8.x
