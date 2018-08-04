@@ -5,7 +5,6 @@
  * This is the primary module file.
  */
 
-use Drupal\commerce_product\Entity\ProductType;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 
