@@ -2,10 +2,24 @@
 
 /**
  * @file
- * Delete configuration items from the UI.
+ * This is the primary module file.
  */
 
+use Drupal\commerce_product\Entity\ProductType;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function config_delete_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.config_delete':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Delete configuration items from the UI.') . '</p>';
+      return $output;
+  }
+}
 
 /**
  * Implements hook_form_alter().
