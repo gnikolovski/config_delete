@@ -55,7 +55,8 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
   /**
    * Deletes the configuration object.
    *
-   * @param $name
+   * @param string $name
+   *   The configuration name.
    */
   protected function deleteConfig($name) {
     \Drupal::configFactory()->getEditable($name)
