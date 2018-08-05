@@ -35,6 +35,11 @@ function config_delete_form_alter(&$form, FormStateInterface $form_state, $form_
       '#weight' => -100,
     ];
 
+    $form['delete_dependencies'] = [
+      '#type' => 'checkbox',
+      '#title' => t('Delete config dependencies'),
+    ];
+
     $form['submit'] = [
       '#type' => 'submit',
       '#value' => t('Delete'),

@@ -34,12 +34,32 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
       $name = $config_name;
     }
 
+    $message = t('Configuration "@config_name" successfully deleted.', ['@config_name' => $name]);
+
+    if ($form_state->getValue('delete_dependencies')) {
+      $dependencies = \Drupal::configFactory()->get($name)->get('dependencies');
+      if (isset($dependencies['config'])) {
+        foreach ($dependencies['config'] as $key => $config_name) {
+          $this->deleteConfig($config_name);
+        }
+
+        $message = t('Configuration "@config_name" and all its dependencies successfully deleted.', ['@config_name' => $name]);
+      }
+    }
+
+    $this->deleteConfig($name);
+
+    drupal_set_message($message);
+  }
+
+  /**
+   * Deletes the configuration object.
+   *
+   * @param $name
+   */
+  protected function deleteConfig($name) {
     \Drupal::configFactory()->getEditable($name)
       ->delete();
-
-    drupal_set_message(t('Configuration "@config_name" successfully deleted.',
-      ['@config_name' => $name])
-    );
   }
 
 }
