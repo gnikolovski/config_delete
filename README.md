@@ -1,46 +1,53 @@
-# CONFIG DELETE
+CONTENTS OF THIS FILE
+---------------------
 
-## CONTENTS OF THIS FILE
+ * Introduction
+ * Requirements
+ * Installation
+ * Configuration
+ * Maintainers
 
-  * Introduction
-  * Requirements
-  * Installation
-  * Configuration
-  * Author
 
-## INTRODUCTION
+INTRODUCTION
+------------
 
-Delete configuration items from the UI.
+The Config Delete module allows the user to delete configuration items from the
+UI.
 
-**How do I remove a configuration object from the active configuration?**
+ * For a full description of the module, visit the project page:
+   https://www.drupal.org/project/config_delete
 
-Just install this module and visit the following page:
+ * To submit bug reports and feature suggestions, or to track changes:
+   https://www.drupal.org/project/issues/config_delete
 
-```
-/admin/config/development/configuration/delete
-```
 
-## REQUIREMENTS
+REQUIREMENTS
+------------
 
-None.
+This module requires no modules outside of Drupal core.
 
-## INSTALLATION
 
-1. Install module as usual via Drush, Drupal UI or Composer.
-2. Go to "Extend" and enable the Config Delete module.
+INSTALLATION
+------------
 
-## CONFIGURATION
+ * Install the Config Delete module as you would normally install a contributed
+   Drupal module. Visit https://www.drupal.org/node/1897420 for further
+   information.
 
-None.
 
-### AUTHOR
+CONFIGURATION
+-------------
 
-Goran Nikolovski  
-Website: (http://www.gorannikolovski.com)  
-Drupal: (https://www.drupal.org/u/gnikolovski)  
-Email: nikolovski84@gmail.com  
+    1. Navigate to Administration > Extend and enable the module.
+    2. Navigate to /admin/config/development/configuration/delete to delete
+       configurations.
 
-Company: Studio Present, Subotica, Serbia  
-Website: (http://www.studiopresent.com)  
-Drupal: (https://www.drupal.org/studio-present)  
-Email: info@studiopresent.com  
+
+MAINTAINERS
+-----------
+
+ * Goran Nikolovski (gnikolovski) - https://www.drupal.org/u/gnikolovski
+
+Supporting organization:
+
+ * Studio Present - https://www.drupal.org/studio-present
