@@ -49,7 +49,7 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
 
     $this->deleteConfig($name);
 
-    drupal_set_message($message);
+    \Drupal::messenger()->addStatus($message);
   }
 
   /**
