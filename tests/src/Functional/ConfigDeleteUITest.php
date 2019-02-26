@@ -16,7 +16,12 @@ class ConfigDeleteUITest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['automated_cron', 'config', 'config_delete', 'config_delete_test'];
+  public static $modules = [
+    'automated_cron',
+    'config',
+    'config_delete',
+    'config_delete_test',
+  ];
 
   /**
    * {@inheritdoc}
