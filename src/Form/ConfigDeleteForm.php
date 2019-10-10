@@ -22,6 +22,17 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
   /**
    * {@inheritdoc}
    */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    $config_name = $form_state->getValue('config_name');
+
+    if (empty($config_name)) {
+      $form_state->setErrorByName('config_name', $this->t('Please select a valid configuration name.'));
+    }
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function submitForm(array &$form, FormStateInterface $form_state) {
     $config_type = $form_state->getValue('config_type');
     $config_name = $form_state->getValue('config_name');

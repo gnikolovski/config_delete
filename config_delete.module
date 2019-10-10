@@ -29,7 +29,7 @@ function config_delete_form_alter(&$form, FormStateInterface $form_state, $form_
 
     $form['config_delete_notice'] = [
       '#type' => 'markup',
-      '#markup' => t('Notice: Deleting configuration items can potentially break your site. Please use this only if you know what are you doing.'),
+      '#markup' => t('Notice: Deleting configuration items can potentially break your site! Please use this form only if you know what are you doing.'),
       '#prefix' => '<strong>',
       '#suffix' => '</strong>',
       '#weight' => -100,

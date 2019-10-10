@@ -16,7 +16,7 @@ class ConfigDeleteUITest extends WebDriverTestBase {
    *
    * @var array
    */
-  public static $modules = ['contact', 'config', 'config_delete'];
+  public static $modules = ['contact', 'config', 'config_delete', 'rdf'];
 
   /**
    * {@inheritdoc}
@@ -45,6 +45,19 @@ class ConfigDeleteUITest extends WebDriverTestBase {
     $this->rebuildContainer();
     $config = $this->config('contact.form.personal');
     $this->assertFalse($config->get('id'), $config->get('id'));
+  }
+
+  /**
+   * Tests form validation.
+   */
+  public function testFormValidation() {
+    $this->drupalGet('admin/config/development/configuration/delete');
+    $this->getSession()->getPage()->selectFieldOption('config_type', 'rdf_mapping');
+    $this->assertSession()->assertWaitOnAjaxRequest();
+    $this->getSession()->getPage()->selectFieldOption('config_name', '- Select -');
+    $this->assertSession()->assertWaitOnAjaxRequest();
+    $this->getSession()->getPage()->pressButton('edit-submit');
+    $this->assertSession()->pageTextContains(t('Please select a valid configuration name.'));
   }
 
 }
