@@ -38,7 +38,7 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
     $config_name = $form_state->getValue('config_name');
 
     if ($form_state->getValue('config_type') !== 'system.simple') {
-      $definition = $this->entityManager->getDefinition($config_type);
+      $definition = $this->entityTypeManager->getDefinition($config_type);
       $name = $definition->getConfigPrefix() . '.' . $config_name;
     }
     else {
@@ -50,7 +50,7 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
     if ($form_state->getValue('delete_dependencies')) {
       $dependencies = \Drupal::configFactory()->get($name)->get('dependencies');
       if (isset($dependencies['config'])) {
-        foreach ($dependencies['config'] as $key => $config_name) {
+        foreach ($dependencies['config'] as $config_name) {
           $this->deleteConfig($config_name);
         }
 
