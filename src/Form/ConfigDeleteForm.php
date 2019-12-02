@@ -45,7 +45,7 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
       $name = $config_name;
     }
 
-    $message = t('Configuration "@config_name" successfully deleted.', ['@config_name' => $name]);
+    $message = $this->t('Configuration "@config_name" successfully deleted.', ['@config_name' => $name]);
 
     if ($form_state->getValue('delete_dependencies')) {
       $dependencies = \Drupal::configFactory()->get($name)->get('dependencies');
@@ -54,7 +54,7 @@ class ConfigDeleteForm extends ConfigSingleExportForm {
           $this->deleteConfig($config_name);
         }
 
-        $message = t('Configuration "@config_name" and all its dependencies successfully deleted.', ['@config_name' => $name]);
+        $message = $this->t('Configuration "@config_name" and all its dependencies successfully deleted.', ['@config_name' => $name]);
       }
     }
 

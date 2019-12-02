@@ -2,6 +2,7 @@
 
 namespace Drupal\Tests\config_delete\Functional;
 
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Tests\BrowserTestBase;
 
 /**
@@ -10,6 +11,8 @@ use Drupal\Tests\BrowserTestBase;
  * @group config_delete
  */
 class ConfigDeleteUITest extends BrowserTestBase {
+
+  use StringTranslationTrait;
 
   /**
    * Modules to enable.
@@ -41,7 +44,7 @@ class ConfigDeleteUITest extends BrowserTestBase {
     $this->assertSession()->titleEquals('Delete | Drupal');
     $this->assertSession()->selectExists('edit-config-type');
     $this->assertSession()->selectExists('edit-config-name');
-    $this->assertSession()->buttonExists(t('Delete'));
+    $this->assertSession()->buttonExists($this->t('Delete'));
   }
 
   /**
@@ -56,7 +59,7 @@ class ConfigDeleteUITest extends BrowserTestBase {
       'config_name' => 'automated_cron.settings',
     ];
     $this->drupalPostForm('admin/config/development/configuration/delete', $form_values, 'Delete');
-    $this->assertSession()->pageTextContains(t('Configuration "automated_cron.settings" successfully deleted.'));
+    $this->assertSession()->pageTextContains($this->t('Configuration "automated_cron.settings" successfully deleted.'));
 
     $config = $this->config('automated_cron.settings');
     $this->assertFalse($config->get('interval'));
@@ -79,7 +82,7 @@ class ConfigDeleteUITest extends BrowserTestBase {
       'delete_dependencies' => TRUE,
     ];
     $this->drupalPostForm('admin/config/development/configuration/delete', $form_values, 'Delete');
-    $this->assertSession()->pageTextContains(t('Configuration "config_delete_test.dep" and all its dependencies successfully deleted.'));
+    $this->assertSession()->pageTextContains($this->t('Configuration "config_delete_test.dep" and all its dependencies successfully deleted.'));
 
     $config = $this->config('config_delete_test.dep');
     $this->assertFalse($config->get('id'));
