@@ -46,8 +46,8 @@ CONFIGURATION
 MAINTAINERS
 -----------
 
+Current maintainers:
  * Goran Nikolovski (gnikolovski) - https://www.drupal.org/u/gnikolovski
 
-Supporting organization:
-
+This project has been sponsored by:
  * Studio Present - https://www.drupal.org/studio-present
