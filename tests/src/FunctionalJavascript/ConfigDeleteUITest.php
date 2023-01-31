@@ -60,7 +60,7 @@ class ConfigDeleteUITest extends WebDriverTestBase {
    */
   public function testFormValidation() {
     $this->drupalGet('admin/config/development/configuration/delete');
-    $this->getSession()->getPage()->selectFieldOption('config_type', 'comment_type');
+    $this->getSession()->getPage()->selectFieldOption('config_type', 'rdf_mapping');
     $this->assertSession()->assertWaitOnAjaxRequest();
     $this->getSession()->getPage()->selectFieldOption('config_name', '- Select -');
     $this->assertSession()->assertWaitOnAjaxRequest();
