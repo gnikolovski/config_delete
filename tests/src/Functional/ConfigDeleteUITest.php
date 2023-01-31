@@ -19,7 +19,7 @@ class ConfigDeleteUITest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = [
+  protected static $modules = [
     'automated_cron',
     'config',
     'config_delete',
@@ -34,7 +34,7 @@ class ConfigDeleteUITest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
 
     $this->drupalLogin($this->drupalCreateUser(['delete configuration']));
@@ -63,7 +63,8 @@ class ConfigDeleteUITest extends BrowserTestBase {
       'config_type' => 'system.simple',
       'config_name' => 'automated_cron.settings',
     ];
-    $this->drupalPostForm('admin/config/development/configuration/delete', $form_values, 'Delete');
+    $this->drupalGet('admin/config/development/configuration/delete');
+    $this->submitForm($form_values, 'Delete');
     $this->assertSession()->pageTextContains($this->t('Configuration "automated_cron.settings" successfully deleted.'));
 
     $config = $this->config('automated_cron.settings');
@@ -86,7 +87,8 @@ class ConfigDeleteUITest extends BrowserTestBase {
       'config_name' => 'config_delete_test.dep',
       'delete_dependencies' => TRUE,
     ];
-    $this->drupalPostForm('admin/config/development/configuration/delete', $form_values, 'Delete');
+    $this->drupalGet('admin/config/development/configuration/delete');
+    $this->submitForm($form_values, 'Delete');
     $this->assertSession()->pageTextContains($this->t('Configuration "config_delete_test.dep" and all its dependencies successfully deleted.'));
 
     $config = $this->config('config_delete_test.dep');
