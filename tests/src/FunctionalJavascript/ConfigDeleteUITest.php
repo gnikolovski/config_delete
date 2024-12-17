@@ -44,9 +44,9 @@ class ConfigDeleteUITest extends WebDriverTestBase {
     $this->assertNotNull($config->get('id'));
 
     $this->getSession()->getPage()->selectFieldOption('config_type', 'contact_form');
-    $this->assertSession()->assertWaitOnAjaxRequest();
+    $this->assertSession()->assertExpectedAjaxRequest();
     $this->getSession()->getPage()->selectFieldOption('config_name', 'personal');
-    $this->assertSession()->assertWaitOnAjaxRequest();
+    $this->assertSession()->assertExpectedAjaxRequest();
     $this->getSession()->getPage()->pressButton('Delete');
     $this->assertSession()->pageTextContains($this->t('Configuration "contact.form.personal" successfully deleted.'));
 
@@ -61,9 +61,8 @@ class ConfigDeleteUITest extends WebDriverTestBase {
   public function testFormValidation() {
     $this->drupalGet('admin/config/development/configuration/delete');
     $this->getSession()->getPage()->selectFieldOption('config_type', 'comment_type');
-    $this->assertSession()->assertWaitOnAjaxRequest();
+    $this->assertSession()->assertExpectedAjaxRequest();
     $this->getSession()->getPage()->selectFieldOption('config_name', '- Select -');
-    $this->assertSession()->assertWaitOnAjaxRequest();
     $this->getSession()->getPage()->pressButton('Delete');
     $this->assertSession()->pageTextContains($this->t('Please select a valid configuration name.'));
   }

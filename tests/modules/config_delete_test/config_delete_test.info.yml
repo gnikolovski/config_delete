@@ -2,5 +2,5 @@ type: module
 name: 'Config Delete Test'
 description: 'Config Delete Test module.'
 package: 'Testing'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 hidden: true

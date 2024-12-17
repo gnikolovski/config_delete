@@ -2,6 +2,6 @@ type: module
 name: 'Config Delete'
 description: 'Delete configuration items from the UI.'
 package: 'Development'
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 dependencies:
   - drupal:config
